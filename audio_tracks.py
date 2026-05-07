@@ -2,6 +2,7 @@ import asyncio
 import logging
 import math
 import time
+from fractions import Fraction
 
 import numpy as np
 from aiortc import MediaStreamTrack
@@ -53,7 +54,7 @@ class SineWaveAudioTrack(MediaStreamTrack):
         frame.planes[0].update(audio_data.tobytes())
 
         frame.pts = self._timestamp
-        frame.time_base = 1 / self.sample_rate
+        frame.time_base = Fraction(1, self.sample_rate)
         self._timestamp += self.samples_per_frame
 
         return frame
