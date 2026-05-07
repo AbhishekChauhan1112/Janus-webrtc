@@ -183,7 +183,8 @@ class JanusClient:
                 "request": "join",
                 "room": config.ROOM_ID,
                 "pin": config.ROOM_PIN,
-                "display": config.DISPLAY_NAME
+                "display": config.DISPLAY_NAME,
+                "group": "default"
             }
         }
         response = await self._send_request(payload)
